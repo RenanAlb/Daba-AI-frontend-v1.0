@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daba AI</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <p>Daba AI</p>
+    </header>
+    <main>
+      <div id="container-chat"></div>
+      <div id="container-prompt">
+        <span id="hi">Hi! How can I help you?</span>
+        <input
+          type="text"
+          placeholder="Ask anything"
+          id="prompt-input"
+          autocomplete="off"
+        />
+        <button id="submit-button">
+          <span class="material-symbols-outlined"> arrow_forward </span>
+        </button>
+      </div>
+      <span id="message-daba-ai"
+        >Daba AI can make mistakes. So, check important info generated.</span
+      >
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
