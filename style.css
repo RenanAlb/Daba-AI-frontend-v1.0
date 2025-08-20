@@ -70,8 +70,8 @@ main {
   border: none;
   color: white;
   outline: none;
-  font-weight: 300;
-  font-size: 0.95em;
+  font-weight: 200;
+  font-size: 0.9em;
 }
 
 #submit-button {
@@ -137,12 +137,12 @@ main {
   background-color: var(--cor2);
   justify-content: end;
   display: flex;
-  padding: 15px;
-  border-radius: 15px;
+  padding: 9px 15px;
+  border-radius: 20px;
 }
 .user-message p {
-  color: white;
-  font-size: 0.9em;
+  color: rgb(235, 235, 235);
+  font-size: 0.86em;
   font-weight: 300;
   line-height: 1.55em;
 }
