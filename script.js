@@ -40,11 +40,14 @@ const sendMessageToLLM = async () => {
   apresentationAiElement.style.opacity = "0";
 
   try {
-    const responseAPI = await fetch("http://localhost:8080/ask-daba-ai", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question }),
-    });
+    const responseAPI = await fetch(
+      "https://daba-ai-backend-v1-0.onrender.com/ask-daba-ai",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question }),
+      }
+    );
 
     if (!responseAPI.ok) throw new Error("Erro!");
 
