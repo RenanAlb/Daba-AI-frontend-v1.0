@@ -50,12 +50,12 @@ const sendMessageToLLM = async () => {
     );
 
     if (!responseAPI.ok) {
-      let errorMessage = `Erro HTTP ${response.status}`;
+      let errorMessage = `Erro HTTP ${responseAPI.status}`;
       try {
-        const errorData = await response.json();
+        const errorData = await responseAPI.json();
         errorMessage += ` - ${JSON.stringify(errorData)}`;
       } catch (error) {
-        const text = await response.text();
+        const text = await responseAPI.text();
         if (text) errorMessage += ` - ${text}`;
       }
 
