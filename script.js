@@ -28,7 +28,6 @@ const sendMessageToLLM = async () => {
   setTimeout(() => {
     containerChatElement.innerHTML += `
       <div id="loading-message">
-        // Default values shown
         <l-ring-2
           size="18"
           stroke="3"
