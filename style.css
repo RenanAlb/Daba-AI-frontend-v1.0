@@ -182,6 +182,8 @@ main {
   font-family: "Abhaya Libre", serif;
   font-size: 1.3em;
   font-weight: 600;
+  display: flex;
+  align-items: center;
   background: linear-gradient(
     270deg,
     rgb(37, 37, 37),
@@ -193,6 +195,7 @@ main {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientAnimation 2.8s ease infinite;
+  margin-left: 10px;
 }
 @keyframes gradientAnimation {
   0% {

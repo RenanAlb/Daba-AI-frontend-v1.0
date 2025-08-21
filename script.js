@@ -28,7 +28,15 @@ const sendMessageToLLM = async () => {
   setTimeout(() => {
     containerChatElement.innerHTML += `
       <div id="loading-message">
-        <p>Thinking</p>
+        // Default values shown
+        <l-ring-2
+          size="40"
+          stroke="5"
+          stroke-length="0.25"
+          bg-opacity="0.1"
+          speed="0.8"
+          color="#D9D9CD" 
+        ></l-ring-2><p>Thinking</p>
       </div>
     `;
 
