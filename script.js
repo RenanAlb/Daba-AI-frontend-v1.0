@@ -3,12 +3,14 @@ const buttonElement = document.getElementById("submit-button");
 const containerPrompt = document.getElementById("container-prompt");
 const apresentationAiElement = document.getElementById("hi");
 const containerChatElement = document.getElementById("container-chat");
+const glassElement = document.getElementById("glass");
 
 const sendMessageToLLM = async () => {
   if (!inputElement.value) {
     throw new Error("Prompt vazio!");
   }
 
+  glassElement.style.display = "block";
   const question = inputElement.value;
 
   containerChatElement.innerHTML += `
@@ -76,6 +78,8 @@ const sendMessageToLLM = async () => {
       </div>
     `;
 
+    glassElement.style.display = "none";
+
     window.scrollTo({
       top: document.body.scrollHeight,
       behavior: "smooth",
@@ -95,6 +99,7 @@ const sendMessageToLLM = async () => {
     `;
 
     document.getElementById("loading-message").remove();
+    glassElement.style.display = "none";
   }
 };
 

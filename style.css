@@ -223,3 +223,19 @@ main {
 #error-message #p {
   margin-top: 10px;
 }
+
+#glass {
+  background-color: rgba(0, 0, 0, 0.415);
+  height: 55px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  border-radius: 30px;
+  display: none;
+}
+
+#glass:hover {
+  cursor: no-drop;
+}
