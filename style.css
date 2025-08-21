@@ -212,6 +212,7 @@ main {
   max-width: 350px;
   padding: 10px;
   border-radius: 15px;
+  margin-bottom: 40px;
 }
 #error-message p {
   color: rgb(255, 240, 240);
