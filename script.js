@@ -30,8 +30,8 @@ const sendMessageToLLM = async () => {
       <div id="loading-message">
         // Default values shown
         <l-ring-2
-          size="40"
-          stroke="5"
+          size="18"
+          stroke="3"
           stroke-length="0.25"
           bg-opacity="0.1"
           speed="0.8"

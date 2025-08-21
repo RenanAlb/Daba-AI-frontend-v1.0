@@ -177,13 +177,13 @@ main {
 #loading-message {
   width: 100%;
   margin-bottom: 30px;
+  display: flex;
+  align-items: center;
 }
 #loading-message p {
   font-family: "Abhaya Libre", serif;
   font-size: 1.3em;
   font-weight: 600;
-  display: flex;
-  align-items: center;
   background: linear-gradient(
     270deg,
     rgb(37, 37, 37),
