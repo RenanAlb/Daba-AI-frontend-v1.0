@@ -41,26 +41,15 @@ const sendMessageToLLM = async () => {
 
   try {
     const responseAPI = await fetch(
-      "https://daba-ai-backend-v1-0.onrender.com/ask-daba-ai",
+      "https://daba-ai-frontend-v1-0.onrender.com/ask-daba-ai",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question }),
+        body: JSON.stringify({ i: question }),
       }
     );
 
-    if (!responseAPI.ok) {
-      let errorMessage = `Erro HTTP ${responseAPI.status}`;
-      try {
-        const errorData = await responseAPI.json();
-        errorMessage += ` - ${JSON.stringify(errorData)}`;
-      } catch (error) {
-        const text = await responseAPI.text();
-        if (text) errorMessage += ` - ${text}`;
-      }
-
-      throw new Error(errorMessage);
-    }
+    if (!responseAPI.ok) throw new Error("Erro!");
 
     const data = await responseAPI.json();
     console.log(data);
@@ -76,12 +65,38 @@ const sendMessageToLLM = async () => {
       </div>
     `;
 
+    if (!responseAPI.ok) {
+      let errorMessage = `Erro HTTP ${response.status}`;
+      try {
+        const errorData = await response.json();
+        errorMessage += ` - ${JSON.stringify(errorData)}`;
+      } catch (error) {
+        const text = await response.text();
+        if (text) errorMessage += ` - ${text}`;
+      }
+
+      throw new Error(errorMessage);
+    }
+
     window.scrollTo({
       top: document.body.scrollHeight,
       behavior: "smooth",
     });
   } catch (error) {
     console.error(error);
+    containerChatElement.innerHTML += ` 
+      <div id="error-ai-message">
+        <div id="error-message">
+          <p>
+            <strong>Erro ao gerar resposta!</strong>
+            <br> 
+            <p id="p">Por favor, envie uma nova mensagem ou tente amanhã!</p>
+          </p>
+        </div>
+      </div>
+    `;
+
+    document.getElementById("loading-message").remove();
   }
 };
 

@@ -74,6 +74,10 @@ main {
   font-size: 0.9em;
 }
 
+#prompt-input::placeholder {
+  font-weight: 400;
+}
+
 #submit-button {
   background-color: white;
   width: 45px;
@@ -200,4 +204,22 @@ main {
   100% {
     background-position: 0% 50%;
   }
+}
+
+#error-message {
+  background: rgb(255, 96, 96);
+  width: 100%;
+  max-width: 350px;
+  padding: 10px;
+  border-radius: 15px;
+}
+#error-message p {
+  color: rgb(255, 240, 240);
+  font-weight: 500;
+  font-size: 0.9em;
+  line-height: 1.35em;
+}
+
+#error-message #p {
+  margin-top: 10px;
 }
