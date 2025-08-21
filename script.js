@@ -72,7 +72,10 @@ const sendMessageToLLM = async () => {
     }
 
     const data = await responseAPI.json();
-    console.log(data);
+
+    if (data.answer === null) {
+      throw new Error("Daba AI retornou null, tente novamente!");
+    }
 
     apresentationAiElement.style.display = "none";
     document.getElementById("loading-message").remove();
