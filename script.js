@@ -41,7 +41,7 @@ const sendMessageToLLM = async () => {
 
   try {
     const responseAPI = await fetch(
-      "https://daba-ai-frontend-v1-0.onrender.com/ask-daba-ai",
+      "https://daba-ai-backend-v1-0.onrender.com/ask-daba-ai",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -49,7 +49,18 @@ const sendMessageToLLM = async () => {
       }
     );
 
-    if (!responseAPI.ok) throw new Error("Erro!");
+    if (!responseAPI.ok) {
+      let errorMessage = `Erro HTTP ${responseAPI.status}`;
+      try {
+        const errorData = await responseAPI.json();
+        errorMessage += ` - ${JSON.stringify(errorData)}`;
+      } catch (error) {
+        const text = await responseAPI.text();
+        if (text) errorMessage += ` - ${text}`;
+      }
+
+      throw new Error(errorMessage);
+    }
 
     const data = await responseAPI.json();
     console.log(data);
@@ -64,19 +75,6 @@ const sendMessageToLLM = async () => {
         </div>
       </div>
     `;
-
-    if (!responseAPI.ok) {
-      let errorMessage = `Erro HTTP ${response.status}`;
-      try {
-        const errorData = await response.json();
-        errorMessage += ` - ${JSON.stringify(errorData)}`;
-      } catch (error) {
-        const text = await response.text();
-        if (text) errorMessage += ` - ${text}`;
-      }
-
-      throw new Error(errorMessage);
-    }
 
     window.scrollTo({
       top: document.body.scrollHeight,
